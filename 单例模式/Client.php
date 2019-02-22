@@ -5,15 +5,16 @@
  * Date: 2019/2/21
  * Time: 14:42
  */
-use danli\Singleton;
+require_once 'Singleton.php';
 
 class Client
 {
-    public static function main()
+    public function main()
     {
         $instance = Singleton::getInstance();
         $instance->test();
     }
 }
 
-Client::main();
+$demo = new Client();
+$demo->main();

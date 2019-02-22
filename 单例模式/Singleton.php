@@ -6,8 +6,6 @@
  * Time: 14:22
  */
 
-namespace danli;
-
 class Singleton
 {
     /**
