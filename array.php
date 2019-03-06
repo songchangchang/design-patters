@@ -7,6 +7,306 @@
  */
 
 /**
+ * 创建一个包含指定元素的数组
+ * 参数（规定数组的最低值，规定数组的最高值，规定元素之间的步进制【默认是 1 可选】）
+ * 返回值
+ */
+$array =range('a','d');
+//var_dump($array);
+//array(4) {
+//    [0]=>
+//  string(1) "a"
+//    [1]=>
+//  string(1) "b"
+//    [2]=>
+//  string(1) "c"
+//    [3]=>
+//  string(1) "d"
+//}
+
+$array2 = range(0,50,10);
+//var_dump($array2);
+//array(6) {
+//    [0]=>
+//  int(0)
+//  [1]=>
+//  int(10)
+//  [2]=>
+//  int(20)
+//  [3]=>
+//  int(30)
+//  [4]=>
+//  int(40)
+//  [5]=>
+//  int(50)
+//}
+
+/**
+ * 打乱数组
+ * 参数（数组）
+ * 返回值 成功时返回true,失败时返回false
+ */
+$numbers = range(1,5);
+shuffle($numbers);
+//foreach ($numbers as $number) {
+//    echo "$number ";
+//}
+//2 5 4 3 1
+
+/**
+ * 从数组中随机的取出一个或多个单元
+ * 参数（数组，取出的个数）
+ * 返回
+ */
+$arrayRand = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+$res = array_rand($arrayRand,2);
+//var_dump($arrayRand[$res[0]]);
+//var_dump($arrayRand[$res[1]]);
+//string(7) "Trinity"
+//string(4) "Tank"
+
+/**
+ * 在数组开头插入一个或多个单元
+ * 参数（数组）
+ * 返回 新数组元素的个数
+ */
+$arrayUnshift = array(3,6,8);
+$res = array_unshift($arrayUnshift,9,6);
+//var_dump($res);
+//int(5)
+
+//var_dump($arrayUnshift);
+//array(5) {
+//    [0]=>
+//  int(9)
+//  [1]=>
+//  int(6)
+//  [2]=>
+//  int(3)
+//  [3]=>
+//  int(6)
+//  [4]=>
+//  int(8)
+//}
+
+/**
+ * 将数组开头的单元移出数组
+ * 参数（数组）
+ * 返回 移出的值 如果数组为空 或 不是一个数组 则返回NULL
+ */
+$arrayShift = array('a' => 'first',5);
+$res = array_shift($arrayShift);
+//var_dump($res);
+//string(5) "first"
+
+/**
+ * 将一个或多个单元压入数组的末尾（入栈）
+ * 参数（数组）
+ * 返回 压入之后的新数组元素的个数
+ */
+$arrayPush = array('a' => 'first','second',3);
+$res = array_push($arrayPush,'four',5);
+//var_dump($res);
+//int(5);
+
+//var_dump($arrayPush);
+//array(5) {
+//    ["a"]=>
+//  string(5) "first"
+//    [0]=>
+//  string(6) "second"
+//    [1]=>
+//  int(3)
+//  [2]=>
+//  string(4) "four"
+//    [3]=>
+//  int(5)
+//}
+
+/**
+ * 弹出数组最后一个单元（出栈）
+ * 参数（数组）
+ * 返回 数组最后一个值
+ */
+$arrayPop = array(3,5,'a' => 'first');
+$res = array_pop($arrayPop);
+//var_dump($res);
+//string(5) "first"
+
+/**
+ * 计算数组中所有值的乘积
+ * 参数（数组）
+ * 返回值（以整数或浮点数返回一个数组中所有值的乘积）
+ */
+$arrayProduct = array(2.3,3,5,6);
+$res = array_product($arrayProduct);
+//var_dump($res);
+//float(207)
+
+/**
+ * 以指定长度将一个值填充进数组
+ * 参数（需要被填充的原始数组，新数组的长度[size]，将被填充的值）
+ * 返回 填充后的新数组（如果size为正，填充到数组的右侧；为负则从左侧开始填补）
+ */
+$arrayPad = array(12,7,9);
+$res = array_pad($arrayPad,5,0);
+//var_dump($res);
+//array(5) {
+//    [0]=>
+//  int(12)
+//  [1]=>
+//  int(7)
+//  [2]=>
+//  int(9)
+//  [3]=>
+//  int(0)
+//  [4]=>
+//  int(0)
+//}
+$res2 = array_pad($arrayPad,-5,0);
+//var_dump($res2);
+//array(5) {
+//    [0]=>
+//  int(0)
+//  [1]=>
+//  int(0)
+//  [2]=>
+//  int(12)
+//  [3]=>
+//  int(7)
+//  [4]=>
+//  int(9)
+//}
+
+/**
+ * 合并一个或多个数组
+ * 参数（要合并的第一个数组，要合并的数组列表）
+ * 返回 合并后的新数组
+ */
+$arrayMerge1 = array("color" => "red",2,3);
+$arrayMerge2 = array("a","b","color" => "green","number" => 2);
+$arrayMerge3 = array(1 => "g","b","c");
+$res = array_merge($arrayMerge1,$arrayMerge2);
+//var_dump($res);
+//array(6) {
+//    ["color"]=>
+//  string(5) "green"
+//    [0]=>
+//  int(2)
+//  [1]=>
+//  int(3)
+//  [2]=>
+//  string(1) "a"
+//    [3]=>
+//  string(1) "b"
+//    ["number"]=>
+//  int(2)
+//}
+
+$res2 = array_merge($arrayMerge2,$arrayMerge3);
+//var_dump($res2);
+//array(7) {
+//    [0]=>
+//  string(1) "a"
+//    [1]=>
+//  string(1) "b"
+//    ["color"]=>
+//  string(5) "green"
+//    ["number"]=>
+//  int(2)
+//  [2]=>
+//  string(1) "g"    //数字键名将会被重新编号
+//    [3]=>
+//  string(1) "b"
+//    [4]=>
+//  string(1) "c"
+//}
+
+$res3 = array_merge($arrayMerge1,$arrayMerge2,$arrayMerge3);
+//var_dump($res3);
+//array(9) {
+//    ["color"]=>
+//  string(5) "green"
+//    [0]=>
+//  int(2)
+//  [1]=>
+//  int(3)
+//  [2]=>
+//  string(1) "a"
+//    [3]=>
+//  string(1) "b"
+//    ["number"]=>
+//  int(2)
+//  [4]=>
+//  string(1) "g"
+//    [5]=>
+//  string(1) "b"
+//    [6]=>
+//  string(1) "c"
+//}
+
+$res4 = $arrayMerge1 + $arrayMerge3;   //如果你想完全保留原有数组并只想新的数组附加到后面，用 + 运算符
+//var_dump($res4);
+//第一个数组的键名将会被保留。
+//在两个数组中存在相同的键名时，第一个数组中的同键名的元素将会被保留，第二个数组中的元素将会被忽略
+//（比如数组3中的 1 => "g" 因为数组1中有相同的键名，所以这个元素会被忽略）
+//array(5) {
+//    ["color"]=>
+//  string(3) "red"
+//    [0]=>
+//  int(2)
+//  [1]=>
+//  int(3)
+//  [2]=>
+//  string(1) "b"
+//    [3]=>
+//  string(1) "c"
+//}
+
+/**
+ * 递归的合并一个或多个数组
+ * 参数（要合并的初始数组，数组变量列表）
+ * 返回 合并后的新数组
+ */
+$arrayMergeRecursive1 = array("color" => array("favorite" => "red") , 5);
+$arrayMergeRecursive2 = array(10,"color" => array("favorite" => "green","blue"));
+$res = array_merge_recursive($arrayMergeRecursive1,$arrayMergeRecursive2);
+//var_dump($res);
+//array(3) {
+//["color"]=>
+//  array(2) {
+//    ["favorite"]=>
+//    array(2) {
+//        [0]=>
+//      string(3) "red"
+//        [1]=>
+//      string(5) "green"
+//    }
+//    [0]=>
+//    string(4) "blue"
+//  }
+//  [0]=>
+//  int(5)
+//  [1]=>
+//  int(10)
+//}
+
+/**
+ * 查找数组中所有的键名
+ * 参数（数组）
+ * 返回 数组中所有的键名
+ */
+$arrayKeys = ['first','s' => 'second'];
+$res = array_keys($arrayKeys);
+//var_dump($res);
+//array(2) {
+//    [0]=>
+//  int(0)
+//  [1]=>
+//  string(1) "s"
+//}
+
+/**
  * 检查数组里是否有指定的键名或索引
  * 参数（要检查的键，数组）
  * 返回 TRUE 或 FALSE
