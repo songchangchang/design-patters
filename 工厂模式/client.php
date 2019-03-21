@@ -3,7 +3,7 @@
 require_once 'FactoryMan.php';
 require_once 'FactoryWoman.php';
 
-class client
+class Client
 {
     //定义静态方法 不用实例化类就可以直接调用
     public static function test()

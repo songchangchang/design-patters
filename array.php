@@ -7,6 +7,241 @@
  */
 
 /**
+ *
+ */
+
+/**
+ * 对数组按照键名排序
+ * 参数（数组）
+ * 返回值 成功时返回true 失败时返回false
+ */
+$ksort = array('a' => 'animal','c' => 'color','B' => 'banana',9,8);
+ksort($ksort);
+//var_dump($ksort);
+//array(5) {
+//    ["B"]=>
+//  string(6) "banana"
+//    ["a"]=>
+//  string(6) "animal"
+//    ["c"]=>
+//  string(5) "color"
+//    [0]=>
+//  int(9)
+//  [1]=>
+//  int(8)
+//}
+
+/**
+ * 对数组按照键名逆向排序
+ * 参数（数组）
+ * 返回值 成功时返回true 失败时返回false
+ */
+$krsort = array('a' => 'animal','c' => 'color','b' => 'banana',9,8);
+krsort($krsort);
+//var_dump($krsort);
+//array(5) {
+//    [1]=>
+//  int(8)
+//  ["c"]=>
+//  string(5) "color"
+//    ["b"]=>
+//  string(6) "banana"
+//    ["a"]=>
+//  string(6) "animal"
+//    [0]=>
+//  int(9)
+//}
+
+/**
+ * 对数组排序并保持索引关系
+ * 参数（数组）
+ * 返回值 成功时返回true 失败时返回false
+ */
+$asort = array('a' => 'animal','c' => 'color','b' => 'banana',9,8);
+asort($asort);
+//var_dump($asort);
+//array(5) {
+//    ["a"]=>
+//  string(6) "animal"
+//    ["b"]=>
+//  string(6) "banana"
+//    ["c"]=>
+//  string(5) "color"
+//    [1]=>
+//  int(8)
+//  [0]=>
+//  int(9)
+//}
+
+/**
+ * 对数组进行逆向排序并保持索引关系
+ * 参数（数组）
+ * 返回值 成功时返回true 失败时返回false
+ */
+$arsort = array('a' => 'animal','c' => 'color','b' => 'banana',9);
+arsort($arsort);
+//var_dump($arsort);
+//array(4) {
+//    [0]=>
+//  int(9)
+//  ["c"]=>
+//  string(5) "color"
+//    ["b"]=>
+//  string(6) "banana"
+//    ["a"]=>
+//  string(6) "animal"
+//}
+
+/**
+ * 返回数组中所有的值
+ * 参数（数组）
+ * 返回含所有值的索引数组
+ */
+$arrayValues = array('size' => 'S','a','c');
+$res = array_values($arrayValues);
+//var_dump($res);
+//array(3) {
+//    [0]=>
+//  string(1) "S"
+//    [1]=>
+//  string(1) "a"
+//    [2]=>
+//  string(1) "c"
+//}
+
+/**
+ * 移除数组中重复的值
+ * 参数（数组）
+ * 返回移除后的数组
+ */
+$arrayUnique = array('color' => 'red','red','green','yellow');
+$res = array_unique($arrayUnique);
+//var_dump($res);
+//array(3) {
+//    ["color"]=>
+//  string(3) "red"
+//    [1]=>
+//  string(5) "green"
+//    [2]=>
+//  string(6) "yellow"
+//}
+
+/**
+ * 去掉数组中的某一部分并用其它值取代
+ * 参数（数组，偏移量，去除的长度，取代的值）
+ * 返回 新数组
+ */
+$arraySplice = array('a','b','c','e','f');
+//去掉2个
+//$res = array_splice($arraySplice,1,2);
+//var_dump($res);
+//array(2) {
+//    [0]=>
+//  string(1) "b"
+//    [1]=>
+//  string(1) "c"
+//}
+
+//var_dump($arraySplice);
+//array(3) {
+//    [0]=>
+//  string(1) "a"
+//    [1]=>
+//  string(1) "e"
+//    [2]=>
+//  string(1) "f"
+//}
+
+//如果指定了 length 并且为负值，则移除从 offset 到数组末尾倒数 length 为止中间所有的单元。
+//$res2 = array_splice($arraySplice,1,-1);
+//var_dump($res2);
+//array(3) {
+//    [0]=>
+//  string(1) "b"
+//    [1]=>
+//  string(1) "c"
+//    [2]=>
+//  string(1) "e"
+//}
+
+//如果 offset 为负，则从 input 末尾倒数该值指定的偏移量开始移除。
+//$res3 = array_splice($arraySplice,-1,1,array('h','j'));
+//var_dump($arraySplice);
+//array(6) {
+//    [0]=>
+//  string(1) "a"
+//    [1]=>
+//  string(1) "b"
+//    [2]=>
+//  string(1) "c"
+//    [3]=>
+//  string(1) "e"
+//    [4]=>
+//  string(1) "h"
+//    [5]=>
+//  string(1) "j"
+//}
+
+$res5 = array_splice($arraySplice,-1,1,'apple');
+//var_dump($arraySplice);
+//array(5) {
+//    [0]=>
+//  string(1) "a"
+//    [1]=>
+//  string(1) "b"
+//    [2]=>
+//  string(1) "c"
+//    [3]=>
+//  string(1) "e"
+//    [4]=>
+//  string(5) "apple"
+//}
+
+/**
+ * 从数组中取出一段
+ * 参数（数组，偏移量，取的长度）
+ * 返回取出后的新数组
+ */
+$arraySlice = array(2,5,6,8);
+
+//$res = array_slice($arraySlice,1,2);
+//var_dump($res);
+//array(2) {
+//    [0]=>
+//  int(5)
+//  [1]=>
+//  int(6)
+//}
+
+//如果 偏移量 为负，则序列将从 array 中距离末端这么远的地方开始。
+$res2 = array_slice($arraySlice,-1,2);
+//var_dump($res2);
+//array(1) {
+//    [0]=>
+//  int(8)
+//}
+
+//如果给出了 length 并且为负，则序列将终止在距离数组末端这么远的地方
+$res3 = array_slice($arraySlice,1,-1);
+//var_dump($res3);
+//array(2) {
+//    [0]=>
+//  int(5)
+//  [1]=>
+//  int(6)
+//}
+
+/**
+ * 在数组中搜索给定的值，如果成功则返回首个相应的键名
+ * 参数（搜索的值，数组）
+ * 返回首个相应的键名
+ */
+$arraySearch = array('red','green','color' => 'red');
+$res = array_search('red',$arraySearch);
+//var_dump($res);
+//int(0)
+
+/**
  * 创建一个包含指定元素的数组
  * 参数（规定数组的最低值，规定数组的最高值，规定元素之间的步进制【默认是 1 可选】）
  * 返回值
@@ -487,5 +722,49 @@ $res = array_count_values($arrayCountValues);  // 1有2个 2有2个 3有2个 a�
  */
 $arrayChunk = ['a','b','c','d','e'];
 $res = array_chunk($arrayChunk, 2);
-$res = array_chunk($arrayChunk, 2,true);
 //var_dump($res);
+//array(3) {
+//    [0]=>
+//  array(2) {
+//        [0]=>
+//    string(1) "a"
+//        [1]=>
+//    string(1) "b"
+//  }
+//  [1]=>
+//  array(2) {
+//        [0]=>
+//    string(1) "c"
+//        [1]=>
+//    string(1) "d"
+//  }
+//  [2]=>
+//  array(1) {
+//        [0]=>
+//    string(1) "e"
+//  }
+//}
+
+$res2 = array_chunk($arrayChunk, 2,true);
+//var_dump($res2);
+//array(3) {
+//    [0]=>
+//  array(2) {
+//        [0]=>
+//    string(1) "a"
+//        [1]=>
+//    string(1) "b"
+//  }
+//  [1]=>
+//  array(2) {
+//        [2]=>
+//    string(1) "c"
+//        [3]=>
+//    string(1) "d"
+//  }
+//  [2]=>
+//  array(1) {
+//        [4]=>
+//    string(1) "e"
+//  }
+//}
